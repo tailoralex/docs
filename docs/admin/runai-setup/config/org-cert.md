@@ -37,6 +37,12 @@ kubectl -n runai-backend create secret generic runai-ca-cert \
         --from-file=runai-ca.pem=<ca_bundle_path>
     ```
 === "Openshift"
+    * Create the `runai` namespace if it does not exist. 
+    * Add the public key to the `runai` namespace:
+    ```
+    kubectl -n runai create secret generic runai-ca-cert \
+        --from-file=runai-ca.pem=<ca_bundle_path>
+    ```
     * Add the public key to the `openshift-monitoring` namespace:
     ```
     kubectl -n openshift-monitoring create secret generic runai-ca-cert \
