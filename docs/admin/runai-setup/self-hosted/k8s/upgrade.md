@@ -94,6 +94,15 @@ helm upgrade -i runai-backend -n runai-backend runai-backend/control-plane \
 !!! Note
     The helm repository name has changed from `runai-backend/runai-backend` to `runai-backend/control-plane`.
 
+### Upgrade from version 2.13 and above
+
+```
+helm get values runai-backend -n runai-backend > values.yaml
+helm upgrade -i runai-backend -n runai-backend runai-backend/control-plane -f values.yaml
+
+!!! Info
+    To install a specific version, add `--version <version>` to the install command. You can find available versions by running `helm search repo -l runai-backend`.
+```
 
 ## Upgrade Cluster 
 
